@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Neue Plak';
+  src: url('../public/fonts/NeuePlak-ExtendedRegular.woff2') format('woff2'),
+      url('../public/fonts/NeuePlak-ExtendedRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url('../public/fonts/Karla-Regular.woff2') format('woff2'),
+      url('../public/fonts/Karla-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
