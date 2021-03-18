@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import TeaserHorizontal from '../components/teaser-horizontal'
+import TeaserVertical from '../components/teaser-vertical'
 import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
@@ -31,6 +32,7 @@ export default function About() {
 
           <Header theme="black" active="about" />
 
+          {/* Hero */}
           <section className="mb-12 md:mb-16 xl:mb-20 pt-20 md:pt-24 xl:pt-32">
             <Container>
               <div className="relative z-10">
@@ -42,6 +44,7 @@ export default function About() {
             </Container>
           </section>
 
+          {/* Content Blocks */}
           <section className="mb-12 md:mb-16 xl:mb-24">
             <Container>
               <div className="mb-10 md:mb-16 xl:mb-20">
@@ -55,6 +58,27 @@ export default function About() {
                   heading="The result? Thoughtful, integrated work with relevance, reach &amp; ROI."
                   text={`<p>Led by founder &amp; CEO Sally Anne Stevens and co-owner &amp; Managing Partner Holly Brunskill, we work alongside and in collaboration with our sister agencies SUMMER and BEING, infusing insider content-creator, social media platform and creative service expertise to all our work; and, through our international partners deliver coordinated global PR, communications &amp; influencer marketing impact.<p>`}
                 />
+              </div>
+            </Container>
+          </section>
+
+          {/* News */}
+          <section className="mb-12 md:mb-16 xl:mb-24">
+            <Container>
+              <span className="block text-xl md:text-2xl xl:text-3xl mb-4 md:mb-6 xl:mb-8 font-display leading-extra-tight">Explore</span>
+              <div className="flex flex-wrap -mx-3">
+                {Array.from(Array(2), (e, i) => {
+                  return (
+                    <div key={i} className="w-full md:w-1/2 px-3">
+                      <div className="mb-8 md:mb-10">
+                        <TeaserVertical
+                          heading="Our Services"
+                          destination={"/"}
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </Container>
           </section>

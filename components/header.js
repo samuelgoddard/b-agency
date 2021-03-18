@@ -29,7 +29,7 @@ export default function Header({ theme, active }) {
                 About
               </a>
             </Link>
-            <Link href="/about">
+            <Link href="/case-studies">
             <a aria-label="Navigate to Case Studies page" className={`nav-item text-sm lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'case-studies' ? 'is--active' : ''}`}>
                 Case Studies
               </a>

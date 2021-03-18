@@ -31,12 +31,14 @@ module.exports = {
       colors: {
         black: '#000',
         white: '#FFF',
+        gray: '#f1f1f1',
         red: '#f5163f',
         yellow: '#ffca5f',
         purple: '#d234b5',
         orange: '#ff7d2f',
         green: '#00c8af',
         blue: '#57bee6',
+        pink: '#fed7c4',
       },
       lineHeight: {
         'extra-tight': '1.15',

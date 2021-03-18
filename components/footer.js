@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer>
       <Container>
-        <div className="border-t-2 border-black pt-5 pb-8 md:pt-8 md:pb-16">
+        <div className="border-t-2 border-black pt-5 pb-8 md:pt-8 md:pb-16 xl:pb-20">
           <div className="flex flex-wrap">
             <div className="w-full md:w-1/2 mb-8 md:mb-0">
               <span className="text-xl xl:text-2xl font-display mb-2 md:mb-3 xl:mb-5 block">Stay in touch</span>

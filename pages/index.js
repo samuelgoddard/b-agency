@@ -4,6 +4,8 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import TeaserHorizontal from '../components/teaser-horizontal'
+import TeaserVertical from '../components/teaser-vertical'
+import CaseStudiesFeature from '../components/case-studies-feature'
 import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
@@ -32,6 +34,7 @@ export default function Home() {
 
           <Header theme="white" active="home" />
 
+          {/* Hero */}
           <section className="mb-12 md:mb-16 xl:mb-24 pt-20 md:pt-24 xl:pt-32 pb-8 md:pb-8 2xl:pb-12 bg-yellow relative h-[80vh] md:h-[65vh] flex flex-wrap items-end">
             {/* Before Shadow */}
             <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black to-opaque opacity-50 z-0"></div>
@@ -47,7 +50,8 @@ export default function Home() {
               </div>
             </Container>
           </section>
-
+          
+          {/* Quote */}
           <section className="mb-12 md:mb-16 xl:mb-24">
             <Container>
               <div className="w-10/12 max-w-5xl mx-auto text-center">
@@ -57,6 +61,7 @@ export default function Home() {
             </Container>
           </section>
 
+          {/* Teaser Content */}
           <section className="mb-12 md:mb-16 xl:mb-24">
             <Container>
               <div className="mb-10 md:mb-16 xl:mb-20">
@@ -84,65 +89,69 @@ export default function Home() {
             </Container>
           </section>
 
-          <section className="bg-yellow mb-12 md:mb-16 xl:mb-24">
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-1/2 py-8 md:py-12 xl:py-20 px-6 md:px-8 2xl:px-0 max-w-3xl md:ml-auto">
-                <div className="flex flex-wrap 2xl:pr-16 h-full">
-                  <span className="block text-base md:text-lg uppercase mb-8">Featured Work</span>
-                  <span className="block text-base md:text-lg uppercase mb-8 ml-auto text-right text-red">View all</span>
+          {/* Featured Work / Case Studies Switcher */}
+          <CaseStudiesFeature showMore />
 
-                  <ul className="w-full self-end justify-self-end">
-                    <li className="block mb-1">
-                      <Link href={"/about"}>
-                        <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                          Nimble
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-1">
-                      <Link href={"/about"}>
-                        <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                          Morphe
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-1">
-                      <Link href={"/about"}>
-                        <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                          Missguided
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-1">
-                      <Link href={"/about"}>
-                        <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                          Bondi Sans
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-1">
-                      <Link href={"/about"}>
-                        <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                          Quays
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="block mb-1">
-                      <Link href={"/about"}>
-                        <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                          Seraphine
-                        </a>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+          {/* Clients */}
+          <section className="mb-12 md:mb-16 xl:mb-24">
+            <Container>
+              <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Clients</span>
+              <div className="flex flex-wrap -mx-2">
+                {Array.from(Array(12), (e, i) => {
+                  return (
+                    <div key={i} className="w-1/2 sm:w-1/3 md:w-1/4 xl:w-1/5 xl:w-1/5 2xl:w-1/6 px-2 mb-4">
+                      <div className="w-full h-full bg-gray p-4 lg:p-8 text-center flex items-center justify-center">
+                        <div className="w-24 md:w-32 h-24 md:h-32 bg-black flex items-center justify-center opacity-[0.05] text-white">[Logo]</div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
-              <div className="w-full md:w-1/2 relative">
-                <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-black to-opaque opacity-75 z-0"></div>
-                <p className="absolute bottom-0 left-0 p-6 md:p-8 text-white w-11/12 lg:w-8/12 xl:w-1/2 z-10 lg:text-lg">The dizzying growth of this generation’s ultimate fashion retailer Industry disruption, trust and trend integrity since 2009.</p>
-                <img src="https://placedog.net/640/640" alt="PLACEHOLDER CHANGE ME SAM" className="w-full" />
+            </Container>
+          </section>
+            
+          {/* Latest News */}
+          <section className="mb-12 md:mb-16 xl:mb-24">
+            <Container>
+              <div className="flex flex-wrap">
+                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Latest</span>
+                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">View All</span>
               </div>
-            </div>
+              <div className="flex flex-wrap -mx-3">
+                {Array.from(Array(2), (e, i) => {
+                  return (
+                    <div key={i} className="w-full md:w-1/2 px-3">
+                      <div className="mb-8 md:mb-10">
+                        <TeaserVertical
+                          tag="Agency News"
+                          heading="Strategy, storytelling, values, trends &amp; insight."
+                          destination={"/about"}
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </Container>
+          </section>
+
+          {/* Insta */}
+          <section className="mb-12 md:mb-16 xl:mb-24">
+            <Container>
+              <div className="flex flex-wrap">
+                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Instagram</span>
+                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">Follow</span>
+              </div>
+              <div className="flex flex-wrap -mx-2">
+                {Array.from(Array(8), (e, i) => {
+                  return (
+                    <div key={i} className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
+                        <img src="https://placedog.net/320/320" alt="PLACEHOLDER CHANGE ME SAM" className="w-full" />
+                    </div>
+                  )
+                })}
+              </div>
+            </Container>
           </section>
 
           <Footer />
