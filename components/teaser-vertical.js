@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function TeaserVertical({ destination, heading, tag, text }) {
+export default function TeaserVertical({ destination, heading, tag, text, listItems }) {
   return (
     <div className="block">
       <div className="w-full mb-4 md:mb-6">
@@ -18,10 +18,20 @@ export default function TeaserVertical({ destination, heading, tag, text }) {
           <div className="lg:w-10/12 lg:text-lg" dangerouslySetInnerHTML={{ __html: text }} />
         )}
 
+        { listItems && (
+          <ul className="fancy-list text-base md:text-lg w-11/12 mt-5">
+            {Array.from(listItems, (e, i) => {
+              return (
+                <li key={i}>{e}</li>
+              )
+            })}
+          </ul>
+        )}
+
         { destination && (
           <Link href={destination}>
             <a aria-label="View Services" className="block text-base md:text-lg uppercase text-red">
-              View Services
+              → View more
             </a>
           </Link>
         )}

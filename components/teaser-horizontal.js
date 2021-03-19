@@ -20,7 +20,7 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
         { destination && (
           <Link href={destination}>
             <a aria-label="View Services" className="block text-base md:text-lg uppercase text-red">
-              View Services
+              → View Services
             </a>
           </Link>
         )}

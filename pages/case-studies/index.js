@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Layout from '../components/layout'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import TeaserVertical from '../components/teaser-vertical'
-import CaseStudiesFeature from '../components/case-studies-feature'
-import Container from '../components/container'
-import { fade } from "../helpers/transitions"
+import Layout from '../../components/layout'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+import TeaserVertical from '../../components/teaser-vertical'
+import CaseStudiesFeature from '../../components/case-studies-feature'
+import Container from '../../components/container'
+import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
 
 export default function CaseStudies() {

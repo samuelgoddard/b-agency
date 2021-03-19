@@ -35,7 +35,7 @@ export default function Home() {
           <Header theme="white" active="home" />
 
           {/* Hero */}
-          <section className="mb-12 md:mb-16 xl:mb-24 pt-20 md:pt-24 xl:pt-32 pb-8 md:pb-8 2xl:pb-12 bg-yellow relative h-[80vh] md:h-[65vh] flex flex-wrap items-end">
+          <section className="mb-12 md:mb-16 xl:mb-24 pt-20 md:pt-24 xl:pt-32 pb-8 md:pb-8 2xl:pb-12 bg-yellow relative h-[80vh] md:h-[73vh] flex flex-wrap items-end">
             {/* Before Shadow */}
             <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black to-opaque opacity-50 z-0"></div>
             {/* After Shadow */}
@@ -115,7 +115,7 @@ export default function Home() {
             <Container>
               <div className="flex flex-wrap">
                 <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Latest</span>
-                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">View All</span>
+                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">→ View All</span>
               </div>
               <div className="flex flex-wrap -mx-3">
                 {Array.from(Array(2), (e, i) => {
@@ -140,7 +140,7 @@ export default function Home() {
             <Container>
               <div className="flex flex-wrap">
                 <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Instagram</span>
-                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">Follow</span>
+                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">→ Follow</span>
               </div>
               <div className="flex flex-wrap -mx-2">
                 {Array.from(Array(8), (e, i) => {

@@ -10,7 +10,7 @@ export default function CaseStudiesFeature({padding, showMore, bgColor}) {
               <span className="inline-block text-base md:text-lg uppercase mb-8">Featured Case Studies</span>
               { showMore && (
                 <Link href={"/case-studies"}>
-                  <a aria-label="View all case studies" className="inline-block text-base md:text-lg uppercase mb-8 ml-auto text-right text-red">View all</a>
+                  <a aria-label="View all case studies" className="inline-block text-base md:text-lg uppercase mb-8 ml-auto text-right text-red">→ View all</a>
                 </Link>
               )}
             </div>
