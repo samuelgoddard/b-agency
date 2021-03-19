@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Arrow from './arrow'
 
 export default function CaseStudiesFeature({padding, showMore, bgColor}) {
   return (
@@ -6,7 +7,7 @@ export default function CaseStudiesFeature({padding, showMore, bgColor}) {
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2 py-8 md:py-12 xl:py-20 px-6 md:px-8 2xl:px-0 max-w-[777px] md:ml-auto">
           <div className={`flex flex-wrap 2xl:pr-16 h-full ${padding ? padding : ''}`}>
-            <div className="flex flex-wrap w-full h-12">
+            <div className="flex flex-wrap w-full h-24 md:h-12">
               <span className="inline-block text-base md:text-lg uppercase mb-8">Featured Case Studies</span>
               { showMore && (
                 <Link href={"/case-studies"}>
@@ -18,43 +19,43 @@ export default function CaseStudiesFeature({padding, showMore, bgColor}) {
             <ul className="w-full self-end justify-self-end">
               <li className="block mb-1">
                 <Link href={"/about"}>
-                  <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                    Nimble
+                  <a aria-label="View Nimbe Project" className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-7xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out md:hover:pl-8 md:focus:pl-8 group flex items-center">
+                    <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 md:-ml-6 lg:-ml-7 3xl:-ml-12 2xl:-ml-10 md:mr-3 2xl:mr-4 transition duration-300 ease-in-out"><Arrow sizeClass="text-red md:w-3 lg:w-[17px] 2xl:w-[24px] 3xl:w-[33px] mt-3 transform -rotate-90 hidden md:block"/></span> Nimble
                   </a>
                 </Link>
               </li>
               <li className="block mb-1">
                 <Link href={"/about"}>
-                  <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                    Morphe
+                  <a aria-label="View Nimbe Project" className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-7xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out md:hover:pl-8 md:focus:pl-8 group flex items-center">
+                    <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 md:-ml-6 lg:-ml-7 3xl:-ml-12 2xl:-ml-10 md:mr-3 2xl:mr-4 transition duration-300 ease-in-out"><Arrow sizeClass="text-red md:w-3 lg:w-[17px] 2xl:w-[24px] 3xl:w-[33px] mt-3 transform -rotate-90 hidden md:block"/></span> Morphe
                   </a>
                 </Link>
               </li>
               <li className="block mb-1">
                 <Link href={"/about"}>
-                  <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                    Missguided
+                  <a aria-label="View Nimbe Project" className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-7xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out md:hover:pl-8 md:focus:pl-8 group flex items-center">
+                    <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 md:-ml-6 lg:-ml-7 3xl:-ml-12 2xl:-ml-10 md:mr-3 2xl:mr-4 transition duration-300 ease-in-out"><Arrow sizeClass="text-red md:w-3 lg:w-[17px] 2xl:w-[24px] 3xl:w-[33px] mt-3 transform -rotate-90 hidden md:block"/></span> Missguided
                   </a>
                 </Link>
               </li>
               <li className="block mb-1">
                 <Link href={"/about"}>
-                  <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                    Bondi Sans
+                  <a aria-label="View Nimbe Project" className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-7xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out md:hover:pl-8 md:focus:pl-8 group flex items-center">
+                    <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 md:-ml-6 lg:-ml-7 3xl:-ml-12 2xl:-ml-10 md:mr-3 2xl:mr-4 transition duration-300 ease-in-out"><Arrow sizeClass="text-red md:w-3 lg:w-[17px] 2xl:w-[24px] 3xl:w-[33px] mt-3 transform -rotate-90 hidden md:block"/></span> Bondi Sans
                   </a>
                 </Link>
               </li>
               <li className="block mb-1">
                 <Link href={"/about"}>
-                  <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                    Quays
+                  <a aria-label="View Nimbe Project" className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-7xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out md:hover:pl-8 md:focus:pl-8 group flex items-center">
+                    <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 md:-ml-6 lg:-ml-7 3xl:-ml-12 2xl:-ml-10 md:mr-3 2xl:mr-4 transition duration-300 ease-in-out"><Arrow sizeClass="text-red md:w-3 lg:w-[17px] 2xl:w-[24px] 3xl:w-[33px] mt-3 transform -rotate-90 hidden md:block"/></span> Quays
                   </a>
                 </Link>
               </li>
               <li className="block mb-1">
                 <Link href={"/about"}>
-                  <a aria-label="View Nimbe Project" className="block text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out hover:pl-8 focus:pl-8">
-                    Seraphine
+                  <a aria-label="View Nimbe Project" className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-6xl 3xl:text-7xl uppercase font-display leading-extra-tight transition-all duration-300 ease-in-out md:hover:pl-8 md:focus:pl-8 group flex items-center">
+                    <span className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 md:-ml-6 lg:-ml-7 3xl:-ml-12 2xl:-ml-10 md:mr-3 2xl:mr-4 transition duration-300 ease-in-out"><Arrow sizeClass="text-red md:w-3 lg:w-[17px] 2xl:w-[24px] 3xl:w-[33px] mt-3 transform -rotate-90 hidden md:block"/></span> Seraphine
                   </a>
                 </Link>
               </li>

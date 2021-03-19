@@ -17,7 +17,7 @@ module.exports = {
       '4xl': '2.25rem', // 36px
       '5xl': '3rem', // 48px
       '6xl': '3.375rem', // 54px
-      '7xl': '5rem', // 80px
+      '7xl': '4.25rem', // 80px
     },
     screens: {
       sm: "640px",

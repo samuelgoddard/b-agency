@@ -35,11 +35,15 @@ export default function Home() {
           <Header theme="white" active="home" />
 
           {/* Hero */}
-          <section className="mb-12 md:mb-16 xl:mb-24 pt-20 md:pt-24 xl:pt-32 pb-8 md:pb-8 2xl:pb-12 bg-yellow relative h-[80vh] md:h-[73vh] flex flex-wrap items-end">
+          <section className="mb-12 md:mb-16 xl:mb-24 pt-20 md:pt-24 xl:pt-32 pb-8 md:pb-8 2xl:pb-12 bg-yellow relative h-[80vh] md:h-[73vh] flex flex-wrap items-end overflow-hidden">
+            {/* Background Image / Video @TODO */}
+            <div className="hero-bg-image absolute top-0 left-0 right-0 bottom-0 w-full h-full">
+              <img src="https://placedog.net/1300/640" alt="PLACEHOLDER CHANGE ME SAM" className="w-full" />
+            </div>
             {/* Before Shadow */}
-            <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black to-opaque opacity-50 z-0"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-black to-opaque opacity-[0.6] z-0"></div>
             {/* After Shadow */}
-            <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-black to-opaque opacity-25 z-0"></div>
+            <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-black to-opaque opacity-[0.3] z-0"></div>
             <Container>
               <div className="relative z-10">
                 <div className="w-11/12 md:w-8/12 xl:w-1/2 text-white">

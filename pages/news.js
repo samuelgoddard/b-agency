@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import TeaserHorizontal from '../components/teaser-horizontal'
+import NewsTeaserHorizontal from '../components/news-teaser-horizontal'
+import NewsTeaserVertical from '../components/news-teaser-vertical'
 import TeaserVertical from '../components/teaser-vertical'
 import Container from '../components/container'
 import { fade } from "../helpers/transitions"
@@ -44,32 +45,71 @@ export default function Services() {
           </section>
 
           {/* News Blocks */}
-          <section className="mb-12 md:mb-16 xl:mb-20">
+          <section className="mb-16 md:mb-20 xl:mb-24">
             <Container>
-              <div className="border-t-2 border-black pt-5 md:pt-8">
-                <span className="block text-xl md:text-2xl xl:text-3xl mb-4 md:mb-6 xl:mb-8 font-display leading-extra-tight">Explore</span>
-                <div className="flex flex-wrap md:-mx-2">
-                  {Array.from(Array(4), (e, i) => {
-                    return (
-                      <div key={i} className="w-full md:w-1/2 md:px-2">
-                        <div className="mb-12 md:mb-16">
-                          <TeaserVertical
-                            heading="Service Title"
-                            listItems={[
-                              'Celebrity, influencer & industry tastemaker outreach, engagement & organic product placement & brand advocacy',
-                              'Guestlist creation & management',
-                              'Celebrity & influencer campaign execution including international media tours, cover shoots, live appearances, media junkets & private events',
-                              'Paid influencer marketing strategy, deal brokering & budget management'
-                            ]}
+              <div className="border-t-2 border-black pt-4 md:pt-6">
+                <div className="relative mb-4 xl:mb-8">
+                  <div className="absolute top-0 right-0 bottom-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+                  
+                  <div className="w-full whitespace-nowrap overflow-x-scroll hide-scroll relative">
+                    {Array.from(Array(5), (e, i) => {
+                      return (
+                        <button key={i} className="inline-block mr-3 mb-3 px-2 md:px-3 xl:px-4 py-1 xl:py-2 bg-[#cbd5e0] bg-opacity-60 text-sm md:text-base hover:bg-opacity-100 focus:bg-opacity-100 focus:border-none focus:outline-none tracking-tight transition ease-in-out duration-200">Example Tag</button>
+                      )
+                    })}
+                  </div>
+                </div>
+                <div className="flex flex-wrap md:-mx-5">
+                  <div className="w-full md:w-1/2 xl:w-7/12 md:px-5 relative mb-10 md:mb-0">
+                    <div className="flex flex-wrap">
+                      <div className="w-8 md:w-16 xl:w-24 hidden md:block">
+                        <span className="absolute top-0 left-0 block text-lg md:text-2xl xl:text-3xl 2xl:text-4xl font-display leading-extra-tight upright -ml-1 md:ml-6 xl:ml-8">Featured*</span>
+                      </div>
+                      <div className="flex-1 ml-auto xl:mx-auto xl:mr-12 relative">
+                        <TeaserVertical
+                          tag="Agency News"
+                          heading="Missguided Uses Product Placement on Love Island"
+                          destination="/"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full md:w-1/2 xl:w-5/12 md:px-5">
+                    {Array.from(Array(3), (e, i) => {
+                      return (
+                        <div className={ i !== 2 ? 'mb-4 md:mb-6' : ''} key={i}>
+                          <NewsTeaserHorizontal 
+                            tag="Agency News"
+                            heading="Missguided Uses Product Placement on Love Island"
+                            destination="/"
                           />
                         </div>
-                      </div>
-                    )
-                  })}
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
             </Container>
           </section>
+
+          <section className="mb-12 md:mb-16 xl:mb-20">
+            <Container>
+              <div className="flex flex-wrap sm:-mx-3">
+                {Array.from(Array(12), (e, i) => {
+                  return (
+                    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 sm:px-3 mb-5 md:mb-8" key={i}>
+                      <NewsTeaserVertical 
+                        tag="Agency News"
+                        heading="Missguided Uses Product Placement on Love Island"
+                        destination="/"
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            </Container>
+          </section>
+
           <Footer />
         </motion.div>
       </motion.div>

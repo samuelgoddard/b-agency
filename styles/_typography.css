@@ -18,6 +18,14 @@ body {
   }
 }
 
+.content > p > a {
+  @apply text-red;
+
+  &:hover, &:focus {
+    @apply text-opacity-50;
+  }
+}
+
 .fancy-list {
   @apply mb-5 list-inside list-disc;
 
@@ -28,6 +36,14 @@ body {
   li:before {
     @apply text-red absolute top-0 left-0 text-xl -mt-2 -ml-px;
     content: "→ ";
+  }
+}
+
+@responsive {
+  .upright {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    transform: rotate(180deg);
   }
 }
 
@@ -49,4 +65,29 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, h6 {
 
 .nav-item.is--active {
   @apply text-red !important;
+}
+
+.hero-bg-image > picture {
+  @apply absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover object-center !important;
+}
+
+.hero-bg-image > img {
+  @apply absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover object-center !important;
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+::-moz-selection {
+  @apply bg-red text-black bg-opacity-50;
+}
+::selection { 
+  @apply bg-red text-black bg-opacity-50;
 }

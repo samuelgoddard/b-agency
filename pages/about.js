@@ -47,16 +47,18 @@ export default function About() {
           {/* Content Blocks */}
           <section className="mb-12 md:mb-16 xl:mb-24">
             <Container>
-              <div className="mb-10 md:mb-16 xl:mb-20">
+              <div className="mb-10 md:mb-16 xl:mb-20 relative">
                 <TeaserHorizontal
                   heading="Digital-first, we deliver beyond the boundaries of traditional PR, blending wellbeing, beauty, fashion &amp; lifestyle strategy and creativity with sharp commercial awareness, direct-to-consumer know-how and a make-it-happen attitude."
+                  arrow
                 />
               </div>
               <div className="mb-10 md:mb-16 xl:mb-20">
                 <TeaserHorizontal
                   reverse
+                  logo
                   heading="The result? Thoughtful, integrated work with relevance, reach &amp; ROI."
-                  text={`<p>Led by founder &amp; CEO Sally Anne Stevens and co-owner &amp; Managing Partner Holly Brunskill, we work alongside and in collaboration with our sister agencies SUMMER and BEING, infusing insider content-creator, social media platform and creative service expertise to all our work; and, through our international partners deliver coordinated global PR, communications &amp; influencer marketing impact.<p>`}
+                  text={`<p>Led by founder &amp; CEO Sally Anne Stevens and co-owner &amp; Managing Partner Holly Brunskill, we work alongside and in collaboration with our sister agencies <a href="#">SUMMER</a> and <a href="#">BEING</a>, infusing insider content-creator, social media platform and creative service expertise to all our work; and, through our international partners deliver coordinated global PR, communications &amp; influencer marketing impact.<p>`}
                 />
               </div>
             </Container>

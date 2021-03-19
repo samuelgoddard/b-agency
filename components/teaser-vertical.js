@@ -4,7 +4,15 @@ export default function TeaserVertical({ destination, heading, tag, text, listIt
   return (
     <div className="block">
       <div className="w-full mb-4 md:mb-6">
-        <img src="https://placedog.net/640/420" alt="PLACEHOLDER CHANGE ME SAM" className="w-full" />
+        { destination ? (
+          <Link href={destination}>
+            <a aria-label="View Services" className="block group relative overflow-hidden">
+              <img src="https://placedog.net/640/420" alt="PLACEHOLDER CHANGE ME SAM" className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]" />
+            </a>
+          </Link>
+        ) : (
+          <img src="https://placedog.net/640/420" alt="PLACEHOLDER CHANGE ME SAM" className="w-full" />
+        )}
       </div>
 
       <div className="w-full">
@@ -31,7 +39,7 @@ export default function TeaserVertical({ destination, heading, tag, text, listIt
         { destination && (
           <Link href={destination}>
             <a aria-label="View Services" className="block text-base md:text-lg uppercase text-red">
-              → View more
+              → Read more
             </a>
           </Link>
         )}

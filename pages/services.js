@@ -2,8 +2,8 @@ import Head from 'next/head'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import TeaserHorizontal from '../components/teaser-horizontal'
 import TeaserVertical from '../components/teaser-vertical'
+import Arrow from '../components/arrow'
 import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
@@ -48,13 +48,13 @@ export default function Services() {
             return (
               <section key={i} className="mb-12 md:mb-16 xl:mb-20">
                 <Container>
-                  <div className="mb-8 md:mb-10 xl:mb-12 flex flex-wrap items-center md:-mx-5">
-                    <div className="w-full md:w-10/12 md:px-5 mb-5 md:mb-0">
-                      <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-2 md:mb-4 font-display leading-extra-tight text-red uppercase">Communications.</h2>
-                      <p className="text-base md:text-lg">PR, tastemaker &amp; influencer, VIP, collaborations &amp; partnerships, events &amp; brand experiences.</p>
+                  <div className="mb-8 md:mb-10 xl:mb-12 flex flex-wrap items-end md:-mx-5 relative">
+                    <div className="w-full md:w-10/12 md:px-5">
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-3 md:mb-4 font-display leading-extra-tight text-red uppercase break-words">Communications</h2>
+                      <p className="text-base md:text-lg w-10/12">PR, tastemaker &amp; influencer, VIP, collaborations &amp; partnerships, events &amp; brand experiences.</p>
                     </div>
-                    <div className="w-full md:w-2/12 md:px-5 md:text-right">
-                      Arrow Here
+                    <div className="md:w-2/12 md:px-5 md:text-right text-[#d2d2e6] absolute bottom-0 right-0 md:relative">
+                      <Arrow sizeClass="w-5 md:w-8 xl:w-10 md:ml-auto transform rotate-180" />
                     </div>
                   </div>
                   
