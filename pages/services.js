@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import { request } from "../lib/datocms";
+import { renderMetaTags } from "react-datocms";
+import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -8,7 +11,7 @@ import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 
-export default function Services() {
+export default function Services({ data: {categories, services} }) {
   return (
     <Layout>
       <Head>
@@ -44,14 +47,14 @@ export default function Services() {
           </section>
 
           {/* Services Blocks */}
-          {Array.from(Array(3), (e, i) => {
+          {categories.map((category, i) => {
             return (
               <section key={i} className="mb-12 md:mb-16 xl:mb-20">
                 <Container>
-                  <div className="mb-8 md:mb-10 xl:mb-12 flex flex-wrap items-end md:-mx-5 relative">
+                  <div className="mb-6 md:mb-8 xl:mb-10 flex flex-wrap items-end md:-mx-5 relative">
                     <div className="w-full md:w-10/12 md:px-5">
-                      <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-3 md:mb-4 font-display leading-extra-tight text-red uppercase break-words">Communications</h2>
-                      <p className="text-base md:text-lg w-10/12">PR, tastemaker &amp; influencer, VIP, collaborations &amp; partnerships, events &amp; brand experiences.</p>
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-3 md:mb-4 font-display leading-extra-tight text-red uppercase break-words">{category.title}</h2>
+                      <div className="text-base md:text-lg w-10/12" dangerouslySetInnerHTML={{ __html: category.description }} />
                     </div>
                     <div className="md:w-2/12 md:px-5 md:text-right text-[#d2d2e6] absolute bottom-0 right-0 md:relative">
                       <Arrow sizeClass="w-5 md:w-8 xl:w-10 md:ml-auto transform rotate-180" />
@@ -59,23 +62,22 @@ export default function Services() {
                   </div>
                   
                   <div className="border-t-2 border-black pt-5 md:pt-8">
-                    <span className="block text-xl md:text-2xl xl:text-3xl mb-4 md:mb-6 xl:mb-8 font-display leading-extra-tight">Explore</span>
                     <div className="flex flex-wrap md:-mx-2">
-                      {Array.from(Array(4), (e, i) => {
+                      {services.map((service, i) => {
                         return (
-                          <div key={i} className="w-full md:w-1/2 md:px-2">
-                            <div className="mb-12 md:mb-16">
-                              <TeaserVertical
-                                heading="Service Title"
-                                listItems={[
-                                  'Celebrity, influencer & industry tastemaker outreach, engagement & organic product placement & brand advocacy',
-                                  'Guestlist creation & management',
-                                  'Celebrity & influencer campaign execution including international media tours, cover shoots, live appearances, media junkets & private events',
-                                  'Paid influencer marketing strategy, deal brokering & budget management'
-                                ]}
-                              />
-                            </div>
-                          </div>
+                          <>
+                            { service.category.slug === category.slug && (
+                              <div key={i} className="w-full md:w-1/2 md:px-2">
+                                <div className="mb-12 md:mb-16">
+                                  <TeaserVertical
+                                    image={service.image}
+                                    heading={service.title}
+                                    listItems={service.content}
+                                  />
+                                </div>
+                              </div>
+                            )}
+                          </>
                         )
                       })}
                     </div>
@@ -111,4 +113,48 @@ export default function Services() {
       </motion.div>
     </Layout>
   )
+}
+
+const SERVICES_QUERY = `
+  query ServicesPage {
+    site: _site {
+      favicon: faviconMetaTags {
+        ...metaTagsFragment
+      }
+    }
+    categories: allServiceCategories(orderBy: position_ASC) {
+      id
+      slug
+      title
+      description
+    }
+    services: allServices {
+      title
+      content
+      category {
+        slug
+      }
+      image {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 420, auto: format }) {
+          ...responsiveImageFragment
+        }
+        title
+        alt
+      }
+    }
+  }
+  ${metaTagsFragment}
+  ${responsiveImageFragment}
+`
+
+export async function getStaticProps() {
+  const data = await request({
+    query: SERVICES_QUERY
+  })
+
+  return {
+    props: {
+      data,
+    },
+  }
 }

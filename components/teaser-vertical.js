@@ -1,17 +1,36 @@
+import { Image } from 'react-datocms'
 import Link from 'next/link'
 
-export default function TeaserVertical({ destination, heading, tag, text, listItems }) {
+export default function TeaserVertical({ destination, heading, tag, text, listItems, image, fancyText }) {
   return (
     <div className="block">
       <div className="w-full mb-4 md:mb-6">
         { destination ? (
           <Link href={destination}>
             <a aria-label="View Services" className="block group relative overflow-hidden">
-              <img src="https://placedog.net/640/420" alt="PLACEHOLDER CHANGE ME SAM" className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]" />
+              { image && (
+                <Image
+                  data={{
+                    ...image.responsiveImage,
+                    alt: image.alt ? image.alt : image.title,
+                  }}
+                  className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
+                />
+              )}
             </a>
           </Link>
         ) : (
-          <img src="https://placedog.net/640/420" alt="PLACEHOLDER CHANGE ME SAM" className="w-full" />
+          <>
+            { image && (
+              <Image
+                data={{
+                  ...image.responsiveImage,
+                  alt: image.alt ? image.alt : image.title,
+                }}
+                className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
+              />
+            )}
+          </>
         )}
       </div>
 
@@ -23,17 +42,11 @@ export default function TeaserVertical({ destination, heading, tag, text, listIt
         <h3 className="block text-xl md:text-xl xl:text-2xl 2xl:text-3xl font-display leading-extra-tight mb-4 md:mb-6 lg:w-10/12">{ heading }</h3>
 
         { text && (
-          <div className="lg:w-10/12 lg:text-lg" dangerouslySetInnerHTML={{ __html: text }} />
+          <div className={`lg:w-10/12 lg:text-lg content ${fancyText ? 'content--fancy' : ''}`} dangerouslySetInnerHTML={{ __html: text }} />
         )}
 
         { listItems && (
-          <ul className="fancy-list text-base md:text-lg w-11/12 mt-5">
-            {Array.from(listItems, (e, i) => {
-              return (
-                <li key={i}>{e}</li>
-              )
-            })}
-          </ul>
+          <div dangerouslySetInnerHTML={{ __html: listItems }} className="fancy-list text-base md:text-lg w-11/12 leading-snug"/>
         )}
 
         { destination && (

@@ -26,11 +26,33 @@ body {
   }
 }
 
+.content--fancy > p:first-of-type {
+  @apply block text-xl font-display leading-extra-tight mb-5;
+}
+
+@screen md {
+  .content--fancy > p:first-of-type {
+    @apply text-xl mb-8;
+  }
+}
+
+@screen xl {
+  .content--fancy > p:first-of-type {
+    @apply text-2xl;
+  }
+}
+
+@screen 2xl {
+  .content--fancy > p:first-of-type {
+    @apply text-3xl;
+  }
+}
+
 .fancy-list {
   @apply mb-5 list-inside list-disc;
 
   li {
-    @apply block mb-4 relative pl-8 leading-snug;
+    @apply block mb-3 relative pl-8 leading-snug;
   }
 
   li:before {
@@ -68,11 +90,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, h6 {
 }
 
 .hero-bg-image > picture {
-  @apply absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover object-center !important;
+  @apply absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover !important;
 }
 
-.hero-bg-image > img {
-  @apply absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover object-center !important;
+.hero-bg-image > picture > img {
+  @apply absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover !important;
 }
 
 .hide-scroll::-webkit-scrollbar {

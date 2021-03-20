@@ -1,12 +1,21 @@
+import { Image } from 'react-datocms'
 import Link from 'next/link'
 
-export default function NewsTeaserVertical({ destination, heading, tag }) {
+export default function NewsTeaserVertical({ destination, heading, tag, image }) {
   return (
     <Link href={destination}>
       <a aria-label="View Services" className="block group">
         <div className="w-full mb-4 md:mb-6">
           <div className="relative overflow-hidden">
-            <img src="https://placedog.net/640/420" alt="PLACEHOLDER CHANGE ME SAM" className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]" />
+            { image && (
+              <Image
+                data={{
+                  ...image.responsiveImage,
+                  alt: image.alt ? image.alt : image.title,
+                }}
+                className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
+              />
+            )}
           </div>
         </div>
 

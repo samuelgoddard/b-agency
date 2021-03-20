@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import { request } from "../lib/datocms";
+import { renderMetaTags } from "react-datocms";
+import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -8,19 +11,12 @@ import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 
-export default function About() {
+export default function About({ data: { about, site }}) {
+  const metaTags = about.seo.concat(site.favicon);
+
   return (
     <Layout>
-      <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <title>About | b. Agency</title>
-          <meta
-          name="description"
-          content="nextJS boilerplate"
-          />
-          <meta name="og:title" content="Website Title" />
-          <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+      <Head>{renderMetaTags(metaTags)}</Head>
 
       {/* Hero */}
       <motion.div
@@ -38,7 +34,7 @@ export default function About() {
               <div className="relative z-10">
                 <div className="w-10/12">
                   <span className="block text-base md:text-lg xl:text-xl font-display mb-3 md:mb-5">About b.</span>
-                  <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-5 md:mb-8 font-display leading-extra-tight text-red">Born boutique in 2004, today we offer big-picture agency thinking with the same energy, honesty &amp; attention to detail. </h1>
+                  <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-5 md:mb-8 font-display leading-extra-tight text-red">{ about.headline }</h1>
                 </div>
               </div>
             </Container>
@@ -49,7 +45,9 @@ export default function About() {
             <Container>
               <div className="mb-10 md:mb-16 xl:mb-20 relative">
                 <TeaserHorizontal
-                  heading="Digital-first, we deliver beyond the boundaries of traditional PR, blending wellbeing, beauty, fashion &amp; lifestyle strategy and creativity with sharp commercial awareness, direct-to-consumer know-how and a make-it-happen attitude."
+                  text={about.block1Text}
+                  image={about.block1Image}
+                  fancyText
                   arrow
                 />
               </div>
@@ -57,8 +55,9 @@ export default function About() {
                 <TeaserHorizontal
                   reverse
                   logo
-                  heading="The result? Thoughtful, integrated work with relevance, reach &amp; ROI."
-                  text={`<p>Led by founder &amp; CEO Sally Anne Stevens and co-owner &amp; Managing Partner Holly Brunskill, we work alongside and in collaboration with our sister agencies <a href="#">SUMMER</a> and <a href="#">BEING</a>, infusing insider content-creator, social media platform and creative service expertise to all our work; and, through our international partners deliver coordinated global PR, communications &amp; influencer marketing impact.<p>`}
+                  fancyText
+                  text={about.block2Text}
+                  image={about.block2Image}
                 />
               </div>
             </Container>
@@ -90,4 +89,53 @@ export default function About() {
       </motion.div>
     </Layout>
   )
+}
+
+const ABOUT_QUERY = `
+  query AboutPage {
+    site: _site {
+      favicon: faviconMetaTags {
+        ...metaTagsFragment
+      }
+    }
+    about {
+      id
+      slug
+      title
+      headline
+      block1Text
+      block1Image {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 480, auto: format }) {
+          ...responsiveImageFragment
+        }
+        title
+        alt
+      }
+      block2Text
+      block2Image {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 480, auto: format }) {
+          ...responsiveImageFragment
+        }
+        title
+        alt
+      }
+      seo: _seoMetaTags {
+        ...metaTagsFragment
+      }
+    }
+  }
+  ${metaTagsFragment}
+  ${responsiveImageFragment}
+`
+
+export async function getStaticProps() {
+  const data = await request({
+    query: ABOUT_QUERY
+  })
+
+  return {
+    props: {
+      data,
+    },
+  }
 }
