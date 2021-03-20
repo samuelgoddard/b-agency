@@ -152,7 +152,7 @@ const NEWS_INDEX_QUERY = `
         title
       }
       featuredImage {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 480, auto: format }) {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 640, h: 420, auto: format }) {
           ...responsiveImageFragment
         }
         title
@@ -167,7 +167,7 @@ const NEWS_INDEX_QUERY = `
         title
       }
       featuredImage {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 540, h: 540, auto: format }) {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 320, h: 320, auto: format }) {
           ...responsiveImageFragment
         }
         title
@@ -182,7 +182,7 @@ const NEWS_INDEX_QUERY = `
         title
       }
       featuredImage {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 480, auto: format }) {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 420, h: 280, auto: format }) {
           ...responsiveImageFragment
         }
         title

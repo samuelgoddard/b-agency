@@ -13,7 +13,7 @@ import Container from '../components/container'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 
-export default function Home({ data: {site, home, news} }) {
+export default function Home({ data: {site, home, news, featuredCaseStudies} }) {
   const metaTags = home.seo.concat(site.favicon);
 
   return (
@@ -96,7 +96,10 @@ export default function Home({ data: {site, home, news} }) {
           </section>
 
           {/* Featured News / Case Studies Switcher */}
-          <CaseStudiesFeature showMore />
+          <CaseStudiesFeature
+            items={featuredCaseStudies}
+            showMore
+          />
 
           {/* Clients */}
           <section className="mb-12 md:mb-16 xl:mb-24">
@@ -210,6 +213,18 @@ const HOME_QUERY = `
       }
       seo: _seoMetaTags {
         ...metaTagsFragment
+      }
+    }
+    featuredCaseStudies: allCaseStudies(filter: {featured: { eq: true }}) {
+      id
+      slug
+      title
+      featuredImage {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 640, h: 640, auto: format }) {
+          ...responsiveImageFragment
+        }
+        title
+        alt
       }
     }
     news: allNews(

@@ -1,5 +1,7 @@
-import Link from 'next/link'
 import Head from 'next/head'
+import { request } from "../../lib/datocms";
+import { renderMetaTags, Image } from "react-datocms";
+import { metaTagsFragment, responsiveImageFragment } from "../../lib/fragments";
 import Layout from '../../components/layout'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
@@ -9,7 +11,7 @@ import Container from '../../components/container'
 import { fade } from "../../helpers/transitions"
 import { motion } from 'framer-motion'
 
-export default function CaseStudies() {
+export default function CaseStudies({ data: { featuredCaseStudies, allCaseStudies, site }}) {
   return (
     <Layout>
       <Head>
@@ -35,7 +37,10 @@ export default function CaseStudies() {
 
           {/* Featured Work / Case Studies Switcher */}
           <div className="pt-[75px] md:pt-[100px] lg:pt-[107px]">
-            <CaseStudiesFeature bgColor="bg-pink" />
+            <CaseStudiesFeature 
+              items={featuredCaseStudies}
+              bgColor="bg-pink"
+            />
           </div>
 
           {/* Latest News */}
@@ -43,13 +48,14 @@ export default function CaseStudies() {
             <Container>
             <span className="block text-xl md:text-2xl xl:text-3xl mb-4 md:mb-6 xl:mb-8 font-display leading-extra-tight">More case studies</span>
               <div className="flex flex-wrap -mx-3">
-                {Array.from(Array(4), (e, i) => {
+                {allCaseStudies.map((item, i) => {
                   return (
                     <div key={i} className="w-full md:w-1/2 px-3">
-                      <div className="mb-10 md:mb-16 xl:mb-20">
+                      <div className="mb-8 md:mb-12 xl:mb-16">
                         <TeaserVertical
-                          heading="Another Case Study"
-                          destination={"/about"}
+                          image={item.featuredImage}
+                          heading={item.title}
+                          destination={`/case-studies/${item.slug}`}
                         />
                       </div>
                     </div>
@@ -64,4 +70,52 @@ export default function CaseStudies() {
       </motion.div>
     </Layout>
   )
+}
+
+const CASE_STUDIES_INDEX_QUERY = `
+  query CaseStudiesIndexPage {
+    site: _site {
+      favicon: faviconMetaTags {
+        ...metaTagsFragment
+      }
+    }
+    featuredCaseStudies: allCaseStudies(filter: {featured: { eq: true }}) {
+      id
+      slug
+      title
+      featuredImage {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 640, h: 640, auto: format }) {
+          ...responsiveImageFragment
+        }
+        title
+        alt
+      }
+    }
+    allCaseStudies(filter: {featured: { eq: false }}) {
+      id
+      slug
+      title
+      featuredImage {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 640, h: 420, auto: format }) {
+          ...responsiveImageFragment
+        }
+        title
+        alt
+      }
+    }
+  }
+  ${metaTagsFragment}
+  ${responsiveImageFragment}
+`
+
+export async function getStaticProps() {
+  const data = await request({
+    query: CASE_STUDIES_INDEX_QUERY
+  })
+
+  return {
+    props: {
+      data,
+    },
+  }
 }
