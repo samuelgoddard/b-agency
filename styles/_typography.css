@@ -26,6 +26,10 @@ body {
   }
 }
 
+.content ul {
+  @apply list-disc list-inside my-3;
+}
+
 .content--fancy > p:first-of-type {
   @apply block text-xl font-display leading-extra-tight mb-5;
 }
@@ -114,7 +118,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, h6 {
   @apply bg-red text-black bg-opacity-50;
 }
 
-
-.case-1 {
-  @apply opacity-100;
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
 }
