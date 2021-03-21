@@ -79,10 +79,11 @@ const CASE_STUDIES_INDEX_QUERY = `
         ...metaTagsFragment
       }
     }
-    featuredCaseStudies: allCaseStudies(filter: {featured: { eq: true }}) {
+    featuredCaseStudies: allCaseStudies(first: 6, filter: {featured: { eq: true }}) {
       id
       slug
       title
+      introText
       featuredImage {
         responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 640, h: 640, auto: format }) {
           ...responsiveImageFragment

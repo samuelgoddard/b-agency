@@ -48,7 +48,9 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
         <div className="w-full md:w-1/2 relative overflow-hidden">
           <div className={`relative z-10 transition ease-in-out duration-500 ${ values.selected == null || values.selected == 0 ? 'opacity-100' : 'opacity-0'}`}>
             <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-black to-opaque opacity-75 z-20"></div>
-            <p className="absolute bottom-0 left-0 p-6 md:p-8 text-white w-11/12 lg:w-8/12 xl:w-1/2 lg:text-lg z-30">The dizzying growth of this generation’s ultimate fashion retailer Industry disruption, trust and trend integrity since 2009.</p>
+            {items[0].introText && (
+              <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white w-11/12 lg:w-8/12 xl:w-1/2 lg:text-lg z-30" dangerouslySetInnerHTML={{ __html: items[0].introText}}/>
+            )}
 
             <Image
               data={{
@@ -80,8 +82,11 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
             }
             return (
               <div className={`absolute top-0 right-0 bottom-0 left-0 w-full h-full z-40 transition ease-in-out duration-500 transform ${ wrapperClasses }`} key={i}>
-                <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-black to-opaque opacity-75 z-20"></div>
-                <p className="absolute bottom-0 left-0 p-6 md:p-8 text-white w-11/12 lg:w-8/12 xl:w-1/2 lg:text-lg z-20">Some other case study text here.</p>
+                <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-black to-opaque opacity-75 z-20 transition-all ease-in-out"></div>
+
+                {item.introText && (
+                  <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white w-11/12 lg:w-8/12 xl:w-1/2 lg:text-lg z-30" dangerouslySetInnerHTML={{ __html: item.introText}}/>
+                )}
                 
                 <Image
                   data={{
