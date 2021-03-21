@@ -62,8 +62,38 @@ export default function NewsSlug({ data: { article, moreNews, site}}) {
           <section className="mb-12 md:mb-16 xl:mb-20">
             <Container>
               <div className="content xl:text-lg max-w-4xl mx-auto">
-                <h2 className="text-xl sm:text-2xl md:text-2xl xl:text-3xl 2xl:text-4xl font-display leading-extra-tight">Content</h2>
-                <p>Content coming soon...</p>
+                { article.content.length > 0 ? (
+                  <>
+                    { article.content.map((block, i) => (
+                        <div key={block.id} className="mb-8 md:mb-12 xl:mb-16">
+                          {
+                            block._modelApiKey === 'text' &&
+                            <div className="content max-w-2xl mx-auto xl:text-lg" dangerouslySetInnerHTML={{ __html: block.text }} />
+                          }
+                          {
+                            block._modelApiKey === 'image' &&
+                            <figure>
+                              <Image
+                                data={{
+                                  ...block.image.responsiveImage,
+                                  alt: block.image.alt ? block.image.alt : block.image.title,
+                                }}
+                                className="w-full"
+                              />
+                              { block.image.title && (
+                                <figcaption className="block text-sm uppercase mt-2 opacity-[0.3]">{block.image.title}</figcaption>
+                              )}
+                            </figure>
+                          }
+                        </div>
+                      )
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <p>Content coming soon...</p>
+                  </>
+                )}
               </div>
             </Container>
           </section>
@@ -115,6 +145,24 @@ const NEWS_SLUG_QUERY = `
         }
         title
         alt
+      }
+      content {
+        ... on TextRecord {
+          id
+          _modelApiKey
+          text
+        }
+        ... on ImageRecord {
+          id
+          _modelApiKey
+          image {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 420, auto: format }) {
+              ...responsiveImageFragment
+            }
+            title
+            alt
+          }
+        }
       }
       seo: _seoMetaTags {
         ...metaTagsFragment

@@ -51,7 +51,7 @@ export default function CaseStudies({ data: { featuredCaseStudies, allCaseStudie
                 {allCaseStudies.map((item, i) => {
                   return (
                     <div key={i} className="w-full md:w-1/2 px-3">
-                      <div className="mb-8 md:mb-12 xl:mb-16">
+                      <div className="mb-8 md:mb-0">
                         <TeaserVertical
                           image={item.featuredImage}
                           heading={item.title}
