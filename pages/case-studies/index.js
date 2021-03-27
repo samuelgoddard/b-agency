@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { request } from "../../lib/datocms";
 import { renderMetaTags, Image } from "react-datocms";
 import { metaTagsFragment, responsiveImageFragment } from "../../lib/fragments";
+import { SmoothScrollProvider } from '../../contexts/SmoothScroll.context'
 import Layout from '../../components/layout'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
@@ -13,62 +14,64 @@ import { motion } from 'framer-motion'
 
 export default function CaseStudies({ data: { featuredCaseStudies, allCaseStudies, site }}) {
   return (
-    <Layout>
-      <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <title>Case Studies | b. Agency</title>
-          <meta
-          name="description"
-          content="nextJS boilerplate"
-          />
-          <meta name="og:title" content="Website Title" />
-          <meta name="twitter:card" content="summary_large_image" />
-      </Head>      
-
-      {/* Hero */}
-      <motion.div
-        initial="initial"
-        animate="enter"
-        exit="exit"
-      >
-        <motion.div variants={fade}>
-
-          <Header theme="black" active="case-studies" />
-
-          {/* Featured Work / Case Studies Switcher */}
-          <div className="pt-[75px] md:pt-[100px] lg:pt-[107px]">
-            <CaseStudiesFeature 
-              items={featuredCaseStudies}
-              bgColor="bg-pink"
+    <SmoothScrollProvider options={{ smooth: true, lerp: 0.065 }}>
+      <Layout>
+        <Head>
+            <link rel="icon" href="/favicon.ico" />
+            <title>Case Studies | b. Agency</title>
+            <meta
+            name="description"
+            content="nextJS boilerplate"
             />
-          </div>
+            <meta name="og:title" content="Website Title" />
+            <meta name="twitter:card" content="summary_large_image" />
+        </Head>      
 
-          {/* Latest News */}
-          <section className="mb-12 md:mb-16 xl:mb-24">
-            <Container>
-            <span className="block text-xl md:text-2xl xl:text-3xl mb-4 md:mb-6 xl:mb-8 font-display leading-extra-tight">More case studies</span>
-              <div className="flex flex-wrap -mx-3">
-                {allCaseStudies.map((item, i) => {
-                  return (
-                    <div key={i} className="w-full md:w-1/2 px-3">
-                      <div className="mb-8 md:mb-0">
-                        <TeaserVertical
-                          image={item.featuredImage}
-                          heading={item.title}
-                          destination={`/case-studies/${item.slug}`}
-                        />
+        {/* Hero */}
+        <motion.div
+          initial="initial"
+          animate="enter"
+          exit="exit"
+        >
+          <motion.div variants={fade}>
+
+            <Header theme="black" active="case-studies" />
+
+            {/* Featured Work / Case Studies Switcher */}
+            <div className="pt-[75px] md:pt-[100px] lg:pt-[107px]">
+              <CaseStudiesFeature 
+                items={featuredCaseStudies}
+                bgColor="bg-pink"
+              />
+            </div>
+
+            {/* Latest News */}
+            <section className="mb-12 md:mb-16 xl:mb-24">
+              <Container>
+              <span className="block text-xl md:text-2xl xl:text-3xl mb-4 md:mb-6 xl:mb-8 font-display leading-extra-tight">More case studies</span>
+                <div className="flex flex-wrap -mx-3">
+                  {allCaseStudies.map((item, i) => {
+                    return (
+                      <div key={i} className="w-full md:w-1/2 px-3">
+                        <div className="mb-8 md:mb-0">
+                          <TeaserVertical
+                            image={item.featuredImage}
+                            heading={item.title}
+                            destination={`/case-studies/${item.slug}`}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </Container>
-          </section>
+                    )
+                  })}
+                </div>
+              </Container>
+            </section>
 
-          <Footer />
+            <Footer />
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </Layout>
+      </Layout>
+    </SmoothScrollProvider>
   )
 }
 

@@ -14,39 +14,39 @@ export default function Header({ theme, active }) {
       <Container>
         <div className="flex flex-wrap">
           <Link href="/">
-            <a aria-label="Navigate to Home page" className={`nav-item text-sm lg:text-base inline-block text-red`}>
+            <a aria-label="Navigate to Home page" className={`nav-item text-sm transition ease-in-out duration-200 lg:text-base inline-block text-red`}>
               <Logo sizeClass="w-[19px] md:w-[22px] lg:w-[24px]" />
             </a>
           </Link>
 
           <div className="ml-auto hidden md:block">
             <Link href="/">
-            <a aria-label="Navigate to Home page" className={`nav-item text-sm lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'home' ? 'is--active' : ''}`}>
+            <a aria-label="Navigate to Home page" className={`nav-item text-sm transition ease-in-out duration-200 lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'home' ? 'is--active' : 'hover:text-opacity-50 focus:text-opacity-75'}`}>
                 Home
               </a>
             </Link>
             <Link href="/about">
-            <a aria-label="Navigate to About page" className={`nav-item text-sm lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'about' ? 'is--active' : ''}`}>
+            <a aria-label="Navigate to About page" className={`nav-item text-sm transition ease-in-out duration-200 lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'about' ? 'is--active' : 'hover:text-opacity-50 focus:text-opacity-75'}`}>
                 About
               </a>
             </Link>
             <Link href="/case-studies">
-            <a aria-label="Navigate to Case Studies page" className={`nav-item text-sm lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'case-studies' ? 'is--active' : ''}`}>
+            <a aria-label="Navigate to Case Studies page" className={`nav-item text-sm transition ease-in-out duration-200 lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'case-studies' ? 'is--active' : 'hover:text-opacity-50 focus:text-opacity-75'}`}>
                 Case Studies
               </a>
             </Link>
             <Link href="/services">
-            <a aria-label="Navigate to Services page" className={`nav-item text-sm lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'services' ? 'is--active' : ''}`}>
+            <a aria-label="Navigate to Services page" className={`nav-item text-sm transition ease-in-out duration-200 lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'services' ? 'is--active' : 'hover:text-opacity-50 focus:text-opacity-75'}`}>
                 Services
               </a>
             </Link>
             <Link href="/news">
-            <a aria-label="Navigate to News page" className={`nav-item text-sm lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'news' ? 'is--active' : ''}`}>
+            <a aria-label="Navigate to News page" className={`nav-item text-sm transition ease-in-out duration-200 lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'news' ? 'is--active' : 'hover:text-opacity-50 focus:text-opacity-75'}`}>
                 News
               </a>
             </Link>
             <Link href="/contact">
-            <a aria-label="Navigate to Contact page" className={`nav-item text-sm lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'contact' ? 'is--active' : ''}`}>
+            <a aria-label="Navigate to Contact page" className={`nav-item text-sm transition ease-in-out duration-200 lg:text-base font-display uppercase inline-block ml-5 ${textColor} ${active === 'contact' ? 'is--active' : 'hover:text-opacity-50 focus:text-opacity-75'}`}>
                 Contact
               </a>
             </Link>

@@ -51,13 +51,17 @@ export default function CaseCarousel({ items }) {
                         <Arrow sizeClass="w-6 md:w-5 xl:w-6 transform -rotate-90" />
                       </button>
                     </div>
-                    <Image
-                      data={{
-                        ...item.image.responsiveImage,
-                        alt: item.image.alt ? item.image.alt : item.image.title,
-                      }}
-                      className="hero-bg-image absolute top-0 left-0 right-0 bottom-0 w-full h-full"
-                    />
+                    <div className="bg-red overflow-hidden">
+                      <div data-scroll data-scroll-speed="0.35">
+                        <Image
+                          data={{
+                            ...item.image.responsiveImage,
+                            alt: item.image.alt ? item.image.alt : item.image.title,
+                          }}
+                          className="hero-bg-image absolute top-0 left-0 right-0 bottom-0 w-full h-full transform scale-[1.125]"
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div className="w-full md:w-5/12 md:px-5 relative pb-12 md:pb-20">
                     <div className="hidden md:flex flex-wrap items-center absolute bottom-0 left-0">

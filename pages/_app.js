@@ -6,8 +6,10 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
 
   return (
-    <AnimatePresence exitBeforeEnter>
-      <Component {...pageProps} key={router.asPath} />
-    </AnimatePresence>
+    <div data-scroll-container id="scroll-container">
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.asPath} />
+      </AnimatePresence>
+    </div>
   )
 }

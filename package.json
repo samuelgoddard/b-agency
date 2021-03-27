@@ -13,6 +13,7 @@
     "dotenv": "^8.2.0",
     "embla-carousel": "^4.2.1",
     "framer-motion": "^3.10.0",
+    "locomotive-scroll": "^4.1.1",
     "next": "10.0.8",
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.3",

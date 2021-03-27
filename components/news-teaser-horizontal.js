@@ -8,13 +8,17 @@ export default function NewsTeaserHorizontal({ destination, heading, tag, image 
         { image && (
           <div className="w-4/12 px-2">
             <div className="relative overflow-hidden">
-              <Image
-                data={{
-                  ...image.responsiveImage,
-                  alt: image.alt ? image.alt : image.title,
-                }}
-                className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
-              />
+              <div className="overflow-hidden bg-red">
+                <div data-scroll data-scroll-speed="-0.25">
+                  <Image
+                    data={{
+                      ...image.responsiveImage,
+                      alt: image.alt ? image.alt : image.title,
+                    }}
+                    className="w-full transform transition ease-in-out duration-300 scale-[1.175] group-focus:scale-[1.25] group-hover:scale-[1.25]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         )}

@@ -51,14 +51,17 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
             {items[0].introText && (
               <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white w-11/12 lg:w-8/12 xl:w-1/2 lg:text-lg z-30" dangerouslySetInnerHTML={{ __html: items[0].introText}}/>
             )}
-
-            <Image
-              data={{
-                ...items[0].featuredImage.responsiveImage,
-                alt: items[0].featuredImage.alt ? items[0].featuredImage.alt : items[0].featuredImage.title,
-              }}
-              className="w-full"
-            />
+            <div className="overflow-hidden">
+              <div data-scroll data-scroll-speed="0.33">
+                <Image
+                  data={{
+                    ...items[0].featuredImage.responsiveImage,
+                    alt: items[0].featuredImage.alt ? items[0].featuredImage.alt : items[0].featuredImage.title,
+                  }}
+                  className="w-full transform scale-[1.1]"
+                />
+              </div>
+            </div>
           </div>
 
           {items.map((item, i) => {
@@ -66,19 +69,19 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
             let imgClasses = 'opacity-0'
             if (values.selected == 1 && i == 1) {
               wrapperClasses = 'opacity-100'
-              imgClasses = 'scale-105'
+              imgClasses = 'scale-[1.125]'
             } else if (values.selected == 2 && i == 2) {
               wrapperClasses = 'opacity-100'
-              imgClasses = 'scale-105'
+              imgClasses = 'scale-[1.125]'
             } else if (values.selected == 3 && i == 3) {
               wrapperClasses = 'opacity-100'
-              imgClasses = 'scale-105'
+              imgClasses = 'scale-[1.125]'
             } else if (values.selected == 4 && i == 4) {
               wrapperClasses = 'opacity-100'
-              imgClasses = 'scale-105'
+              imgClasses = 'scale-[1.125]'
             } else if (values.selected == 5 && i == 5) {
               wrapperClasses = 'opacity-100'
-              imgClasses = 'scale-105'
+              imgClasses = 'scale-[1.125]'
             }
             return (
               <div className={`absolute top-0 right-0 bottom-0 left-0 w-full h-full z-40 transition ease-in-out duration-500 transform ${ wrapperClasses }`} key={i}>
@@ -87,14 +90,17 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
                 {item.introText && (
                   <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white w-11/12 lg:w-8/12 xl:w-1/2 lg:text-lg z-30" dangerouslySetInnerHTML={{ __html: item.introText}}/>
                 )}
-                
-                <Image
-                  data={{
-                    ...item.featuredImage.responsiveImage,
-                    alt: item.featuredImage.alt ? item.featuredImage.alt : item.featuredImage.title,
-                  }}
-                  className={`w-full z-10 transition ease-in-out duration-500 transform ${imgClasses}`}
-                />
+                <div className="overflow-hidden">
+                  <div data-scroll data-scroll-speed="0.33">
+                    <Image
+                      data={{
+                        ...item.featuredImage.responsiveImage,
+                        alt: item.featuredImage.alt ? item.featuredImage.alt : item.featuredImage.title,
+                      }}
+                      className={`w-full z-10 transition ease-in-out duration-500 transform ${imgClasses}`}
+                    />
+                  </div>
+                </div>
               </div>
             )
           })}

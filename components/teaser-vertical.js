@@ -6,29 +6,37 @@ export default function TeaserVertical({ destination, heading, tag, text, listIt
     <div className="block">
       <div className="w-full mb-4 md:mb-6">
         { destination ? (
-          <Link href={destination}>
+          <Link href={destination} scroll={false}>
             <a aria-label="View Services" className="block group relative overflow-hidden">
               { image && (
-                <Image
-                  data={{
-                    ...image.responsiveImage,
-                    alt: image.alt ? image.alt : image.title,
-                  }}
-                  className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
-                />
+                <div className="overflow-hidden">
+                  <div data-scroll data-scroll-speed="0.35">
+                    <Image
+                      data={{
+                        ...image.responsiveImage,
+                        alt: image.alt ? image.alt : image.title,
+                      }}
+                      className="w-full transform transition ease-in-out duration-300 scale-[1.125] group-focus:scale-[1.25] group-hover:scale-[1.25]"
+                    />
+                  </div>
+                </div>
               )}
             </a>
           </Link>
         ) : (
           <>
             { image && (
-              <Image
-                data={{
-                  ...image.responsiveImage,
-                  alt: image.alt ? image.alt : image.title,
-                }}
-                className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
-              />
+              <div className="overflow-hidden">
+                <div data-scroll data-scroll-speed="0.35">
+                  <Image
+                    data={{
+                      ...image.responsiveImage,
+                      alt: image.alt ? image.alt : image.title,
+                    }}
+                    className="w-full transform scale-[1.125]"
+                  />
+                </div>
+              </div>
             )}
           </>
         )}
@@ -50,7 +58,7 @@ export default function TeaserVertical({ destination, heading, tag, text, listIt
         )}
 
         { destination && (
-          <Link href={destination}>
+          <Link href={destination} scroll={false}>
             <a aria-label="View Services" className="block text-base md:text-lg uppercase text-red">
               → Read more
             </a>

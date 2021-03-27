@@ -7,15 +7,19 @@ export default function NewsTeaserVertical({ destination, heading, tag, image })
       <a aria-label="View Services" className="block group">
         <div className="w-full mb-4 md:mb-6">
           <div className="relative overflow-hidden">
-            { image && (
-              <Image
-                data={{
-                  ...image.responsiveImage,
-                  alt: image.alt ? image.alt : image.title,
-                }}
-                className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
-              />
-            )}
+            <div className="overflow-hidden">
+              <div data-scroll data-scroll-speed="0.25">
+                { image && (
+                  <Image
+                    data={{
+                      ...image.responsiveImage,
+                      alt: image.alt ? image.alt : image.title,
+                    }}
+                    className="w-full transform transition ease-in-out duration-300 scale-[1.125] group-focus:scale-[1.25] group-hover:scale-[1.25]"
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </div>
 

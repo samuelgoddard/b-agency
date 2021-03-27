@@ -8,29 +8,37 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
     <div className={`flex flex-wrap items-center md:-mx-4 lg:-mx-8 ${ reverse ? 'flex-row-reverse' : ''}`}>
       <div className="w-full md:w-7/12 md:px-4 lg:px-8 mb-4 md:mb-0">
         { destination ? (
-          <Link href={destination}>
+          <Link href={destination} scroll={false}>
             <a aria-label="View Services" className="block group relative overflow-hidden">
               { image && (
-                <Image
-                  data={{
-                    ...image.responsiveImage,
-                    alt: image.alt ? image.alt : image.title,
-                  }}
-                  className="w-full transform transition ease-in-out duration-300 scale-[1.01] group-focus:scale-[1.15] group-hover:scale-[1.15]"
-                />
+                <div className="overflow-hidden">
+                  <div data-scroll data-scroll-speed="0.35">
+                    <Image
+                      data={{
+                        ...image.responsiveImage,
+                        alt: image.alt ? image.alt : image.title,
+                      }}
+                      className="w-full transform transition ease-in-out duration-300 scale-[1.125] group-focus:scale-[1.2] group-hover:scale-[1.2]"
+                    />
+                  </div>
+                </div>
               )}
             </a>
           </Link>
         ) : (
           <>
             { image && (
-              <Image
-                data={{
-                  ...image.responsiveImage,
-                  alt: image.alt ? image.alt : image.title,
-                }}
-                className="w-full"
-              />
+              <div className="overflow-hidden">
+                <div data-scroll data-scroll-speed="0.35">
+                  <Image
+                    data={{
+                      ...image.responsiveImage,
+                      alt: image.alt ? image.alt : image.title,
+                    }}
+                    className="w-full transform scale-[1.125]"
+                  />
+                </div>
+              </div>
             )}
           </>
         )}
@@ -61,7 +69,7 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
             )}
 
             { destination && (
-              <Link href={destination}>
+              <Link href={destination} scroll={false}>
                 <a aria-label="View Services" className="block text-base md:text-lg uppercase text-red">
                   → View Services
                 </a>
