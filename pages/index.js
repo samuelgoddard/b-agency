@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
-// import Instagram from 'instagram-web-api'
+import Instagram from 'instagram-web-api'
 import { request } from "../lib/datocms";
 import { renderMetaTags, Image } from "react-datocms";
 import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
@@ -160,7 +160,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
                   <a href="https://www.instagram.com/b_theagency/" target="_blank" rel="noreferrer noopener" className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">→ Follow</a>
                 </div>
                 <div className="flex flex-wrap -mx-2">
-                  {/* {instagramPosts.slice(0, 8).map(({ node }, i) => {
+                  {instagramPosts.slice(0, 8).map(({ node }, i) => {
                     return (
                       <div key={i} className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
                         <img
@@ -174,7 +174,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
                         />
                       </div>
                     )
-                  })} */}
+                  })}
                 </div>
               </Container>
             </section>
@@ -232,6 +232,9 @@ const HOME_QUERY = `
       slug
       title
       introText
+      color {
+        hex
+      }
       featuredImage {
         responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 640, h: 640, auto: format }) {
           ...responsiveImageFragment
@@ -264,16 +267,16 @@ export async function getStaticProps() {
     query: HOME_QUERY    
   })
 
-  // const client = new Instagram({ username: "samgoddarddev", password: "E" });
-  // await client.login();
-  // const response = await client.getPhotosByUsername({
-  //   username: 'b_theagency',
-  // });
+  const client = new Instagram({ username: process.env.IG_USERNAME, password: process.env.IG_PASSWORD });
+  await client.login();
+  const response = await client.getPhotosByUsername({
+    username: 'b_theagency',
+  });
 
   return {
     props: {
       data,
-      // instagramPosts: response.user.edge_owner_to_timeline_media.edges
+      instagramPosts: response.user.edge_owner_to_timeline_media.edges
     },
   }
 }

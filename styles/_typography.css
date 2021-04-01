@@ -88,6 +88,23 @@ body {
   }
 }
 
+
+.content--large > p:first-of-type {
+  @apply block text-2xl font-display leading-extra-tight mb-5 !important;
+}
+
+@screen md {
+  .content--large > p:first-of-type {
+    @apply text-3xl mb-8 !important;
+  }
+}
+
+@screen lg {
+  .content--large > p:first-of-type {
+    @apply text-4xl mb-8 !important;
+  }
+}
+
 @screen xl {
   .content--fancy > p:first-of-type {
     @apply text-2xl;

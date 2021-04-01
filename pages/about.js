@@ -9,6 +9,7 @@ import Footer from '../components/footer'
 import TeaserHorizontal from '../components/teaser-horizontal'
 import TeaserVertical from '../components/teaser-vertical'
 import Container from '../components/container'
+import Logo from '../components/logo'
 import { fade } from "../helpers/transitions"
 import { motion } from 'framer-motion'
 
@@ -54,13 +55,20 @@ export default function About({ data: { about, site }}) {
                   />
                 </div>
                 <div className="mb-10 md:mb-16 xl:mb-20">
-                  <TeaserHorizontal
-                    reverse
-                    logo
-                    fancyText
-                    text={about.block2Text}
-                    image={about.block2Image}
-                  />
+                  <div className="flex flex-wrap">
+                    <div className="w-full xl:w-auto">
+                      <Logo sizeClass="w-[19px] md:w-[22px] lg:w-[24px] text-red mr-6 lg:mr-0 mt-2 md:mt-0 mb-4 xl:mt-2 xl:mb-0 xl:mr-12 2xl:mr-16" />
+                    </div>
+                    <div className="bg-yellow flex-1 bg-opacity-[0.35]">
+                      <TeaserHorizontal
+                        logo
+                        reverse
+                        fancyText
+                        text={about.block2Text}
+                        image={about.block2Image}
+                      />
+                    </div>
+                  </div>
                 </div>
               </Container>
             </section>

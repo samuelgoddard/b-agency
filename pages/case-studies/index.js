@@ -87,6 +87,9 @@ const CASE_STUDIES_INDEX_QUERY = `
       slug
       title
       introText
+      color {
+        hex
+      }
       featuredImage {
         responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 640, h: 640, auto: format }) {
           ...responsiveImageFragment

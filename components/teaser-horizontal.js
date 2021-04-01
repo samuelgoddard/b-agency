@@ -1,6 +1,5 @@
 import { Image } from 'react-datocms'
 import Arrow from './arrow'
-import Logo from './logo'
 import Link from 'next/link'
 
 export default function TeaserHorizontal({ destination, heading, reverse, tag, text, arrow, logo, image, fancyText}) {
@@ -46,12 +45,7 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
 
       <div className="w-full md:w-5/12 md:px-4 lg:px-8">
         <div className="flex flex-wrap items-start">
-          { logo && (
-            <div className="w-full xl:w-auto">
-              <Logo sizeClass="w-[19px] md:w-[22px] lg:w-[24px] text-red mr-6 lg:mr-0 mt-2 md:mt-0 mb-4 xl:mt-2 xl:mb-0 xl:mr-12 2xl:mr-16" />
-            </div>
-          )}
-          <div className="flex-1">
+          <div className={`flex-1 ${ logo ? 'p-8 pt-4 md:pt-8 md:pr-0 lg:pl-12 xl:pl-16' : null }`}>
             { tag && (
               <span className="block text-base md:text-lg uppercase mb-2 md:mb-4 opacity-50">{ tag }</span>
             )}
@@ -61,7 +55,7 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
             )}
 
             { text && (
-              <div className={`xl:w-10/12 lg:text-lg content ${fancyText ? 'content--fancy' : ''}`} dangerouslySetInnerHTML={{ __html: text }} />
+              <div className={`xl:w-10/12 lg:text-lg content ${ logo ? 'content--large' : '' } ${fancyText ? 'content--fancy' : ''}`} dangerouslySetInnerHTML={{ __html: text }} />
             )}
             
             { arrow && (

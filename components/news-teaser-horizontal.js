@@ -8,7 +8,7 @@ export default function NewsTeaserHorizontal({ destination, heading, tag, image 
         { image && (
           <div className="w-4/12 px-2">
             <div className="relative overflow-hidden">
-              <div className="overflow-hidden bg-red">
+              <div className="overflow-hidden">
                 <div data-scroll data-scroll-speed="-0.25">
                   <Image
                     data={{

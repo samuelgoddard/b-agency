@@ -18,8 +18,8 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
 
   return (
     <section className={`mb-12 md:mb-16 xl:mb-24 ${bgColor ? bgColor : 'bg-yellow'}`}>
-      <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 py-8 md:py-12 xl:py-20 px-6 md:px-8 2xl:px-0 max-w-[777px] md:ml-auto">
+      <div className="flex flex-wrap relative">
+        <div className="w-full md:w-1/2 py-8 md:py-12 xl:py-20 px-6 md:px-8 2xl:px-0 max-w-[777px] md:ml-auto relative z-10">
           <div className={`flex flex-wrap 2xl:pr-16 h-full ${padding ? padding : ''}`}>
             <div className="flex flex-wrap w-full h-24 md:h-12">
               <span className="inline-block text-base md:text-lg uppercase mb-8">Featured Case Studies</span>
@@ -105,6 +105,26 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
             )
           })}
         </div>
+
+        {items.map((item, i) => {
+            let wrapperClasses = 'opacity-0'
+
+            if (values.selected == 1 && i == 1) {
+              wrapperClasses = 'opacity-100'
+            } else if (values.selected == 2 && i == 2) {
+              wrapperClasses = 'opacity-100'
+            } else if (values.selected == 3 && i == 3) {
+              wrapperClasses = 'opacity-100'
+            } else if (values.selected == 4 && i == 4) {
+              wrapperClasses = 'opacity-100'
+            } else if (values.selected == 5 && i == 5) {
+              wrapperClasses = 'opacity-100'
+            }
+            return (
+              <div className={`absolute inset-0 left-0 w-full h-full z-0 transition ease-in-out duration-500 ${ wrapperClasses}`} style={{ backgroundColor: `${item.color ? item.color.hex : '#fed7c4'}` }} key={i}>
+              </div>
+            )
+          })}
       </div>
     </section>
   )
