@@ -262,15 +262,16 @@ const HOME_QUERY = `
   ${responsiveImageFragment}
 `
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   const data = await request({
     query: HOME_QUERY    
   })
 
   const client = new Instagram({ username: process.env.IG_USERNAME, password: process.env.IG_PASSWORD });
   await client.login();
+
   const response = await client.getPhotosByUsername({
-    username: 'b_theagency',
+      username: "b_theagency",
   });
 
   return {
