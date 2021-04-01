@@ -72,6 +72,7 @@ export default function Services({ data: {categories, services} }) {
                                 <div key={i} className="w-full md:w-1/2 md:px-2">
                                   <div className="mb-12 md:mb-16">
                                     <TeaserVertical
+                                      headingSwap
                                       image={service.image}
                                       heading={service.title}
                                       listItems={service.content}

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { SmoothScrollProvider } from '../contexts/SmoothScroll.context'
-import Instagram from 'instagram-web-api'
+// import Instagram from 'instagram-web-api'
 import { request } from "../lib/datocms";
 import { renderMetaTags, Image } from "react-datocms";
 import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
@@ -51,10 +51,10 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
               <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-black to-opaque opacity-[0.3] z-0"></div>
               <Container>
                 <div className="relative z-10" data-scroll data-scroll-speed="0.3">
-                  <div className="w-11/12 md:w-8/12 xl:w-7/2 text-white">
+                  <div className="w-11/12 md:w-8/12 xl:w-8/12 text-white">
                     <h1 className="text-2xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl mb-5 md:mb-8 font-display leading-extra-tight md:leading-none">{ home.heroHeadline }</h1>
 
-                    <span className="text-sm md:text-lg 2xl:text-xl" dangerouslySetInnerHTML={{ __html: home.heroText }} />
+                    <span className="text-sm md:text-lg 2xl:text-xl xl:w-7/12" dangerouslySetInnerHTML={{ __html: home.heroText }} />
                   </div>
                 </div>
               </Container>
@@ -64,9 +64,9 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
             { home.openingQuote && (
               <section className="mb-12 md:mb-16 xl:mb-24">
                 <Container>
-                  <div className="w-10/12 max-w-5xl mx-auto text-center">
+                  <div className="w-10/12 2xl:w-10/12 max-w-5xl mx-auto text-center">
                     <span className="block text-base md:text-lg font-display mb-3">B. The Agency</span>
-                    <span className="block text-xl md:text-2xl xl:text-3xl 2xl:text-4xl font-display leading-extra-tight" dangerouslySetInnerHTML={{ __html: home.openingQuote }} />
+                    <span className="block text-xl md:text-2xl xl:text-4xl 2xl:text-4xl font-display leading-tight" dangerouslySetInnerHTML={{ __html: home.openingQuote }} />
                   </div>
                 </Container>
               </section>
@@ -159,7 +159,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
                   <span className="block text-base md:text-lg font-display mb-4 md:mb-6 xl:mb-8">Instagram</span>
                   <a href="https://www.instagram.com/b_theagency/" target="_blank" rel="noreferrer noopener" className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">→ Follow</a>
                 </div>
-                <div className="flex flex-wrap -mx-2">
+                {/* <div className="flex flex-wrap -mx-2">
                   {instagramPosts.slice(0, 8).map(({ node }, i) => {
                     return (
                       <div key={i} className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
@@ -175,7 +175,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
                       </div>
                     )
                   })}
-                </div>
+                </div> */}
               </Container>
             </section>
 
@@ -267,17 +267,17 @@ export async function getStaticProps(context) {
     query: HOME_QUERY    
   })
 
-  const client = new Instagram({ username: process.env.IG_USERNAME, password: process.env.IG_PASSWORD });
-  await client.login();
+  // const client = new Instagram({ username: process.env.IG_USERNAME, password: process.env.IG_PASSWORD });
+  // await client.login();
 
-  const response = await client.getPhotosByUsername({
-      username: "b_theagency",
-  });
+  // const response = await client.getPhotosByUsername({
+  //     username: "b_theagency",
+  // });
 
   return {
     props: {
       data,
-      instagramPosts: response.user.edge_owner_to_timeline_media.edges
+      // instagramPosts: response.user.edge_owner_to_timeline_media.edges
     },
   }
 }

@@ -45,13 +45,13 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
 
       <div className={`w-full md:px-4 lg:px-8 ${logo ? 'md:w-6/12' : 'md:w-5/12' }`}>
         <div className={`flex flex-wrap items-start`}>
-          <div className={`flex-1 ${ logo ? 'p-8 pt-4 md:pt-8 md:pr-0 lg:pl-12 xl:pl-16' : null }`}>
+          <div className={`flex-1 ${ logo ? 'p-8 pt-4 md:pt-8 md:pr-0 lg:pl-12 xl:pl-16' : 'pt-12' }`}>
             { tag && (
               <span className="block text-base md:text-lg font-display mb-2 md:mb-4 opacity-50">{ tag }</span>
             )}
             
             { heading && (
-              <h3 className="block text-xl md:text-xl xl:text-2xl 2xl:text-3xl font-display leading-extra-tight mb-5 md:mb-8 lg:w-10/12">{ heading }</h3>
+              <h3 className="block text-xl md:text-xl xl:text-2xl 2xl:text-3xl font-display leading-tight mb-5 md:mb-8 lg:w-10/12">{ heading }</h3>
             )}
 
             { text && (
@@ -59,7 +59,9 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
             )}
             
             { arrow && (
-              <Arrow sizeClass="w-5 mt-auto text-red" />
+              <div data-scroll data-scroll-speed="-0.35" className="mt-12">
+                <Arrow sizeClass="w-5 mt-auto text-red" />
+              </div>
             )}
 
             { destination && (

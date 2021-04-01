@@ -47,7 +47,7 @@ export default function TeaserVertical({ destination, heading, tag, text, listIt
           <span className="block text-base md:text-lg font-display mb-2 md:mb-4 opacity-50">{ tag }</span>
         )}
         
-        <h3 className="block text-xl md:text-xl xl:text-2xl 2xl:text-3xl font-display leading-extra-tight mb-4 md:mb-6 lg:w-10/12">{ heading }</h3>
+        <h3 className="block text-xl md:text-xl xl:text-2xl 2xl:text-3xl font-display leading-tight mb-4 md:mb-6 lg:w-10/12">{ heading }</h3>
 
         { text && (
           <div className={`lg:w-10/12 lg:text-lg content ${fancyText ? 'content--fancy' : ''}`} dangerouslySetInnerHTML={{ __html: text }} />

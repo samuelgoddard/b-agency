@@ -56,7 +56,7 @@ export default function About({ data: { about, site }}) {
                 </div>
                 <div className="mb-10 md:mb-16 xl:mb-20">
                   <div className="flex flex-wrap">
-                    <div className="w-full xl:w-auto">
+                    <div className="w-full xl:w-auto" data-scroll data-scroll-speed="0.5">
                       <Logo sizeClass="w-[19px] md:w-[22px] lg:w-[24px] text-red mr-6 lg:mr-0 mt-2 md:mt-0 mb-4 xl:mt-2 xl:mb-0 xl:mr-12 2xl:mr-16" />
                     </div>
                     <div className="bg-yellow flex-1 bg-opacity-[0.35]">
