@@ -29,3 +29,32 @@ html.has-scroll-dragging {
 .has-scroll-smooth [data-scroll-container] {
   min-height: 100vh;
 }
+
+.btn-mobile-menu {
+  @apply absolute top-0 right-0 z-50 flex flex-col items-center justify-around w-8 h-8 mt-5 mr-5 outline-none transform scale-[0.8];
+
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+.btn-mobile-menu span {
+  @apply relative w-8 h-1 transition-all duration-200;
+  transform-origin: 0;
+  background-color: currentColor;
+}
+
+.btn-mobile-menu.open span {
+  &:first-child {
+    transform: rotate(45deg);
+  }
+
+  &:nth-child(2) {
+    opacity: 0;
+    /* transform: translateX(20px); */
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}

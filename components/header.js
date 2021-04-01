@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Container from './container'
 import Logo from './logo'
+import MobileMenu from './mobile-menu'
 
 export default function Header({ theme, active }) {
   let textColor = 'text-white'
@@ -12,6 +13,8 @@ export default function Header({ theme, active }) {
   return (
     <header className="pt-6 md:pt-10 absolute top-0 left-0 right-0 z-30">
       <Container>
+        <MobileMenu active={active} />
+        
         <div className="flex flex-wrap">
           <Link href="/">
             <a aria-label="Navigate to Home page" className={`nav-item text-base transition ease-in-out duration-200 lg:text-lg inline-block text-red`}>
