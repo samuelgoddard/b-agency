@@ -22,7 +22,7 @@ export default function CaseStudiesFeature({ padding, showMore, bgColor, items }
         <div className="w-full md:w-1/2 py-8 md:py-12 xl:py-20 px-6 md:px-8 2xl:px-0 max-w-[777px] md:ml-auto relative z-10">
           <div className={`flex flex-wrap 2xl:pr-16 h-full ${padding ? padding : ''}`}>
             <div className="flex flex-wrap w-full h-24 md:h-12">
-              <span className="inline-block text-base md:text-lg uppercase mb-8">Featured Case Studies</span>
+              <span className="inline-block text-base md:text-lg font-display mb-8">Featured Case Studies</span>
               { showMore && (
                 <Link href={"/case-studies"}>
                   <a aria-label="View all case studies" className="inline-block text-base md:text-lg uppercase mb-8 ml-auto text-right text-red">→ View all</a>

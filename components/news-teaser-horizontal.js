@@ -25,7 +25,7 @@ export default function NewsTeaserHorizontal({ destination, heading, tag, image 
 
         <div className="w-8/12 px-2">
           { tag && (
-            <span className="block text-base uppercase mb-0 text-orange">{ tag }</span>
+            <span className="block text-base font-display mb-1 text-orange">{ tag }</span>
           )}
           
           <h3 className="block text-lg md:text-lg xl:text-xl 2xl:text-xl font-display leading-extra-tight lg:w-10/12 group-hover:text-red group-focus:text-red transition ease-in-out duration-300">{ heading }</h3>

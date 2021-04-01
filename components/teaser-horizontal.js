@@ -47,7 +47,7 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
         <div className={`flex flex-wrap items-start`}>
           <div className={`flex-1 ${ logo ? 'p-8 pt-4 md:pt-8 md:pr-0 lg:pl-12 xl:pl-16' : null }`}>
             { tag && (
-              <span className="block text-base md:text-lg uppercase mb-2 md:mb-4 opacity-50">{ tag }</span>
+              <span className="block text-base md:text-lg font-display mb-2 md:mb-4 opacity-50">{ tag }</span>
             )}
             
             { heading && (

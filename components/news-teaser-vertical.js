@@ -25,7 +25,7 @@ export default function NewsTeaserVertical({ destination, heading, tag, image })
 
         <div className="w-full">
           { tag && (
-            <span className="block text-base uppercase mb-1 text-orange">{ tag }</span>
+            <span className="block text-base font-display mb-1 text-orange">{ tag }</span>
           )}
           
           <h3 className="block text-lg md:text-lg xl:text-xl 2xl:text-xl font-display leading-extra-tight mb-4 md:mb-6 lg:w-10/12 group-hover:text-red group-focus:text-red transition ease-in-out duration-300">{ heading }</h3>

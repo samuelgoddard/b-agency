@@ -65,7 +65,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
               <section className="mb-12 md:mb-16 xl:mb-24">
                 <Container>
                   <div className="w-10/12 max-w-5xl mx-auto text-center">
-                    <span className="block text-base md:text-lg uppercase mb-3">B. The Agency</span>
+                    <span className="block text-base md:text-lg font-display mb-3">B. The Agency</span>
                     <span className="block text-xl md:text-2xl xl:text-3xl 2xl:text-4xl font-display leading-extra-tight" dangerouslySetInnerHTML={{ __html: home.openingQuote }} />
                   </div>
                 </Container>
@@ -107,7 +107,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
             {/* Clients */}
             <section className="mb-12 md:mb-16 xl:mb-24">
               <Container>
-                <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Clients</span>
+                <span className="block text-base md:text-lg font-display mb-4 md:mb-6 xl:mb-8">Clients</span>
                 <div className="flex flex-wrap -mx-2">
                   {Array.from(Array(12), (e, i) => {
                     return (
@@ -126,7 +126,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
             <section className="mb-12 md:mb-16 xl:mb-24">
               <Container>
                 <div className="flex flex-wrap">
-                  <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Latest</span>
+                  <span className="block text-base md:text-lg font-display mb-4 md:mb-6 xl:mb-8">Latest</span>
                   <Link href="/news">
                     <a aria-label="View Services" className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">
                       → View All
@@ -156,7 +156,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
             <section className="mb-12 md:mb-16 xl:mb-24">
               <Container>
                 <div className="flex flex-wrap">
-                  <span className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8">Instagram</span>
+                  <span className="block text-base md:text-lg font-display mb-4 md:mb-6 xl:mb-8">Instagram</span>
                   <a href="https://www.instagram.com/b_theagency/" target="_blank" rel="noreferrer noopener" className="block text-base md:text-lg uppercase mb-4 md:mb-6 xl:mb-8 text-red ml-auto text-right">→ Follow</a>
                 </div>
                 <div className="flex flex-wrap -mx-2">
