@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 export default function TeaserHorizontal({ destination, heading, reverse, tag, text, arrow, logo, image, fancyText}) {
   return (
-    <div className={`flex flex-wrap items-center md:-mx-4 lg:-mx-8 ${ reverse ? 'flex-row-reverse' : ''}`}>
-      <div className="w-full md:w-7/12 md:px-4 lg:px-8 mb-4 md:mb-0">
+    <div className={`flex flex-wrap md:-mx-4 lg:-mx-8 ${ reverse ? 'flex-row-reverse' : ''} ${ logo ? 'items-center' : ''}`}>
+      <div className={`w-full md:px-4 lg:px-8 mb-4 md:mb-0 ${logo ? 'md:w-6/12' : 'md:w-7/12' }`}>
         { destination ? (
           <Link href={destination} scroll={false}>
             <a aria-label="View Services" className="block group relative overflow-hidden">
@@ -27,7 +27,7 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
         ) : (
           <>
             { image && (
-              <div className="overflow-hidden">
+              <div className={`overflow-hidden ${logo ? 'md:ml-6' : '' }`}>
                 <div data-scroll data-scroll-speed="0.35">
                   <Image
                     data={{
@@ -43,8 +43,8 @@ export default function TeaserHorizontal({ destination, heading, reverse, tag, t
         )}
       </div>
 
-      <div className="w-full md:w-5/12 md:px-4 lg:px-8">
-        <div className="flex flex-wrap items-start">
+      <div className={`w-full md:px-4 lg:px-8 ${logo ? 'md:w-6/12' : 'md:w-5/12' }`}>
+        <div className={`flex flex-wrap items-start`}>
           <div className={`flex-1 ${ logo ? 'p-8 pt-4 md:pt-8 md:pr-0 lg:pl-12 xl:pl-16' : null }`}>
             { tag && (
               <span className="block text-base md:text-lg uppercase mb-2 md:mb-4 opacity-50">{ tag }</span>

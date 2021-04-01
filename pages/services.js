@@ -58,9 +58,9 @@ export default function Services({ data: {categories, services} }) {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-3 md:mb-4 font-display leading-extra-tight text-red uppercase break-words">{category.title}</h2>
                         <div className="text-base md:text-lg w-10/12" dangerouslySetInnerHTML={{ __html: category.description }} />
                       </div>
-                      <div className="md:w-2/12 md:px-5 md:text-right text-[#d2d2e6] absolute bottom-0 right-0 md:relative">
+                      {/* <div className="md:w-2/12 md:px-5 md:text-right text-[#d2d2e6] absolute bottom-0 right-0 md:relative">
                         <Arrow sizeClass="w-5 md:w-8 xl:w-10 md:ml-auto transform rotate-180" />
-                      </div>
+                      </div> */}
                     </div>
                     
                     <div className="border-t-2 border-black pt-5 md:pt-8">
@@ -131,7 +131,7 @@ const SERVICES_QUERY = `
       title
       description
     }
-    services: allServices {
+    services: allServices(orderBy: position_ASC) {
       title
       content
       category {

@@ -34,7 +34,7 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
             <Header theme="white" active="home" />
 
             {/* Hero */}
-            <section className="mb-12 md:mb-16 xl:mb-24 pt-20 md:pt-24 xl:pt-32 pb-8 md:pb-8 2xl:pb-12 bg-yellow relative h-[80vh] md:h-[73vh] flex flex-wrap items-end overflow-hidden">
+            <section className="mb-12 md:mb-16 xl:mb-24 pt-20 md:pt-24 xl:pt-32 pb-8 md:pb-12 2xl:pb-16 bg-yellow relative h-[100vh] md:h-[100vh] flex flex-wrap items-end overflow-hidden">
               {/* Background Image / Video @TODO */}
               <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover" data-scroll data-scroll-speed="-0.75">
                 <Image
@@ -51,10 +51,10 @@ export default function Home({ data: {site, home, news, featuredCaseStudies}, in
               <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-black to-opaque opacity-[0.3] z-0"></div>
               <Container>
                 <div className="relative z-10" data-scroll data-scroll-speed="0.3">
-                  <div className="w-11/12 md:w-8/12 xl:w-1/2 text-white">
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-5xl 2xl:text-6xl mb-5 md:mb-8 font-display leading-extra-tight">{ home.heroHeadline }</h1>
+                  <div className="w-11/12 md:w-8/12 xl:w-7/2 text-white">
+                    <h1 className="text-2xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl mb-5 md:mb-8 font-display leading-extra-tight md:leading-none">{ home.heroHeadline }</h1>
 
-                    <span className="text-sm md:text-base 2xl:text-lg" dangerouslySetInnerHTML={{ __html: home.heroText }} />
+                    <span className="text-sm md:text-lg 2xl:text-xl" dangerouslySetInnerHTML={{ __html: home.heroText }} />
                   </div>
                 </div>
               </Container>

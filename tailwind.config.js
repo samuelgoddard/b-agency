@@ -17,7 +17,8 @@ module.exports = {
       '4xl': '2.25rem', // 36px
       '5xl': '3rem', // 48px
       '6xl': '3.375rem', // 54px
-      '7xl': '4.25rem', // 80px
+      '7xl': '3.875', // 62px
+      '8xl': '4.375rem', // 72px
     },
     screens: {
       sm: "640px",
@@ -41,7 +42,7 @@ module.exports = {
         pink: '#fed7c4',
       },
       lineHeight: {
-        'extra-tight': '1.15',
+        'extra-tight': '1.1',
        }
     },
   },

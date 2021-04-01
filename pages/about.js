@@ -124,7 +124,7 @@ const ABOUT_QUERY = `
       }
       block2Text
       block2Image {
-        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 480, auto: format }) {
+        responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 720, h: 680, auto: format }) {
           ...responsiveImageFragment
         }
         title
